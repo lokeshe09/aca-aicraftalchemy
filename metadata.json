@@ -1,0 +1,6 @@
+{
+  "name": "ACA Agentic Coding CLI",
+  "description": "ACA is a local, private, agentic coding CLI that works with any model from any provider — Gemini, Claude, OpenAI, NVIDIA, Groq, Cerebras, OpenRouter, and Hugging Face. Bring your own API key.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
