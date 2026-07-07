@@ -23,7 +23,8 @@ export default function HeroPage({ setActivePage }: HeroPageProps) {
 
   const headlinePrefix = "The agentic coding CLI for ";
   const headlineSuffix = "any model, any provider";
-  const fullHeadline = headlinePrefix + headlineSuffix;
+  const authorSuffix = " by AICRAFTALCHEMY";
+  const fullHeadline = headlinePrefix + headlineSuffix + authorSuffix;
   const [typedLength, setTypedLength] = useState(0);
 
   useEffect(() => {
@@ -134,7 +135,12 @@ export default function HeroPage({ setActivePage }: HeroPageProps) {
               {fullHeadline.substring(0, Math.min(typedLength, headlinePrefix.length))}
               {typedLength > headlinePrefix.length && (
                 <span className="bg-gradient-to-r from-accent to-accent-2 bg-clip-text text-transparent">
-                  {fullHeadline.substring(headlinePrefix.length, typedLength)}
+                  {fullHeadline.substring(headlinePrefix.length, Math.min(typedLength, headlinePrefix.length + headlineSuffix.length))}
+                </span>
+              )}
+              {typedLength > (headlinePrefix.length + headlineSuffix.length) && (
+                <span className="text-text-custom-3 font-sans text-2xl md:text-3xl lg:text-4xl font-normal block mt-3">
+                  {fullHeadline.substring(headlinePrefix.length + headlineSuffix.length, typedLength)}
                 </span>
               )}
               <span className="inline-block w-[3px] h-[0.8em] bg-accent ml-1.5 animate-blink align-middle" />
