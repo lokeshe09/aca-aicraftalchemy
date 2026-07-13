@@ -96,19 +96,25 @@ export default function ProvidersPage() {
   };
 
   return (
-    <div className="py-12 md:py-18 relative">
+    <div className="py-16 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute top-1/2 right-12 w-[300px] h-[300px] bg-accent/5 rounded-full blur-[110px]" />
+        <div className="absolute top-1/3 right-10 w-[450px] h-[450px] bg-accent/5 rounded-full blur-[140px]" />
       </div>
 
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
-        <div className="text-left max-w-3xl mb-14">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-accent-2 font-semibold mb-3 inline-block">
-            Model Providers
-          </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight font-display text-text-custom mb-5">
-            Eight providers. One key at a time.
+        <div className="text-left max-w-3xl mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent-border/30 bg-accent/5 mb-4">
+            <Key className="w-3.5 h-3.5 text-accent-2" />
+            <span className="font-mono text-[10.5px] uppercase tracking-wider text-accent-2 font-bold">
+              Model Providers
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight font-display text-text-custom mb-6 leading-[1.1]">
+            Eight providers.{' '}
+            <span className="bg-gradient-to-r from-accent to-accent-2 bg-clip-text text-transparent">
+              One key at a time.
+            </span>
           </h2>
           <p className="text-text-custom-2 text-base md:text-lg leading-relaxed">
             Every provider works the same way in ACA — no provider is special. Each card links straight to where you can quickly generate or find your keys on their respective official developer dashboards.
@@ -116,7 +122,7 @@ export default function ProvidersPage() {
         </div>
 
         {/* Provider Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {providers.map((p, idx) => (
             <motion.div
               key={p.id}
@@ -124,11 +130,11 @@ export default function ProvidersPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-20px' }}
               transition={{ duration: 0.35, delay: idx * 0.04 }}
-              className="group bg-panel border border-border-custom hover:border-accent-border rounded-xl p-5 md:p-6 transition-all duration-200 flex flex-col sm:flex-row gap-5 hover:-translate-y-0.5 text-left"
+              className="group bg-panel/60 backdrop-blur-sm border border-border-custom hover:border-accent-border/60 rounded-2xl p-6 transition-all duration-300 flex flex-col sm:flex-row gap-5.5 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(12,14,24,0.35),0_0_25px_rgba(120,150,255,0.05)] text-left"
             >
               {/* Badge Icon */}
               <div
-                className={`w-12 h-12 rounded-xl border flex items-center justify-center font-mono font-bold text-lg shrink-0 ${p.badgeClass}`}
+                className={`w-14 h-14 rounded-2xl border flex items-center justify-center font-mono font-extrabold text-xl shrink-0 group-hover:scale-105 transition-transform duration-300 ${p.badgeClass}`}
               >
                 {p.badge}
               </div>
@@ -136,29 +142,29 @@ export default function ProvidersPage() {
               {/* Body Content */}
               <div className="flex-1 min-w-0 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-3 mb-2 flex-wrap">
-                    <span className="font-bold text-text-custom text-base tracking-tight font-display">
+                  <div className="flex items-center gap-3 mb-2.5 flex-wrap">
+                    <span className="font-extrabold text-text-custom text-lg tracking-tight font-display group-hover:text-accent-2 transition-colors">
                       {p.name}
                     </span>
-                    <span className="font-mono text-[10px] text-text-custom-3 border border-border-custom/50 px-2 py-0.5 rounded-full bg-bg-dark-3">
+                    <span className="font-mono text-[9.5px] uppercase tracking-wider text-text-custom-3 border border-border-custom/55 px-2.5 py-0.5 rounded-full bg-bg-dark-3/60">
                       {p.company}
                     </span>
                   </div>
 
-                  <p className="text-text-custom-2 text-xs leading-relaxed mb-4">
+                  <p className="text-text-custom-2 text-xs md:text-sm leading-relaxed mb-5">
                     {p.description}
                   </p>
                 </div>
 
                 {/* API Action Row */}
-                <div className="space-y-3.5 pt-2 border-t border-border-soft">
-                  <div className="flex items-center justify-between gap-4">
-                    <code className="font-mono text-xs text-accent-2 bg-bg-dark-3 px-2 py-1 rounded border border-border-custom/40 truncate select-all">
+                <div className="space-y-4 pt-3.5 border-t border-border-soft">
+                  <div className="flex items-center justify-between gap-4 bg-bg-dark-3/40 border border-border-custom/30 rounded-xl p-2.5 hover:bg-bg-dark-3/70 transition-colors">
+                    <code className="font-mono text-xs text-accent-2 truncate select-all px-1">
                       {p.envVar}
                     </code>
                     <button
                       onClick={() => copyToClipboard(p.envVar, p.id)}
-                      className="p-1.5 hover:bg-bg-dark-3 rounded text-text-custom-3 hover:text-text-custom transition-all cursor-pointer"
+                      className="p-2 hover:bg-bg-dark-3 rounded-lg text-text-custom-3 hover:text-text-custom hover:border hover:border-border-custom transition-all cursor-pointer"
                       title="Copy variable name"
                     >
                       {copiedId === p.id ? (
@@ -173,11 +179,11 @@ export default function ProvidersPage() {
                     href={p.keyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs text-text-custom-2 hover:text-accent-2 transition-colors border-b border-dashed border-border-custom hover:border-accent-border/50 pb-0.5"
+                    className="inline-flex items-center gap-2 text-xs text-text-custom-2 hover:text-accent-2 transition-all font-medium hover:translate-x-0.5"
                   >
-                    <Key className="w-3 h-3 text-accent" />
+                    <Key className="w-3.5 h-3.5 text-accent" />
                     <span>Get a key at {new URL(p.keyUrl).hostname}</span>
-                    <ExternalLink className="w-2.5 h-2.5" />
+                    <ExternalLink className="w-3 h-3 text-text-custom-3" />
                   </a>
                 </div>
 

@@ -26,6 +26,12 @@
 body {
   font-family: var(--font-sans);
   background-color: var(--color-bg-dark);
+  background-image: 
+    radial-gradient(at 50% 0%, rgba(120, 150, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(at 100% 100%, rgba(160, 185, 255, 0.04) 0%, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.005) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.005) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
   color: var(--color-text-custom);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;

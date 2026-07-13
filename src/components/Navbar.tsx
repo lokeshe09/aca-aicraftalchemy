@@ -36,15 +36,15 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
         </button>
 
         {/* Desktop nav links */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-4">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id)}
-              className={`text-sm transition-colors cursor-pointer ${
+              className={`text-sm transition-all duration-200 px-4 py-1.5 rounded-full cursor-pointer font-medium border ${
                 activePage === item.id
-                  ? 'text-accent font-medium'
-                  : 'text-text-custom-2 hover:text-text-custom'
+                  ? 'text-accent-2 bg-accent/10 border-accent-border/30 shadow-[0_0_15px_rgba(120,150,255,0.1)]'
+                  : 'text-text-custom-2 hover:text-text-custom border-transparent hover:bg-bg-dark-3/50'
               }`}
             >
               {item.label}
@@ -52,7 +52,7 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
           ))}
           <button
             onClick={() => handleNavClick('docs')}
-            className="flex items-center gap-1.5 font-mono text-xs text-accent-2 border border-accent-border/60 px-3.5 py-1.5 rounded-lg bg-accent-dim hover:bg-accent/20 transition-all cursor-pointer"
+            className="flex items-center gap-1.5 font-mono text-xs text-accent-2 border border-accent-border/60 px-4 py-1.5 rounded-full bg-accent-dim hover:bg-accent/20 transition-all shadow-[0_0_15px_rgba(120,150,255,0.12)] hover:shadow-[0_0_20px_rgba(120,150,255,0.25)] cursor-pointer ml-2"
           >
             <span>Get started</span>
             <ArrowRight className="w-3 h-3" />

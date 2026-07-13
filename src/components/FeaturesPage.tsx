@@ -1,5 +1,5 @@
 import React from 'react';
-import { Plug, Lock, Key, Cpu, Zap, Shield, Sparkles } from 'lucide-react';
+import { Plug, Lock, Key, Cpu, Zap, Shield } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function FeaturesPage() {
@@ -37,27 +37,35 @@ export default function FeaturesPage() {
   ];
 
   return (
-    <div className="py-12 md:py-18 relative">
+    <div className="py-16 md:py-24 relative overflow-hidden">
+      {/* Decorative Blur Spheres */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute bottom-12 left-12 w-[350px] h-[250px] bg-accent-dim rounded-full blur-[100px]" />
+        <div className="absolute top-1/4 left-10 w-[380px] h-[380px] bg-accent/5 rounded-full blur-[130px] opacity-70" />
+        <div className="absolute bottom-10 right-10 w-[420px] h-[420px] bg-accent-2/5 rounded-full blur-[130px] opacity-70" />
       </div>
 
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
-        <div className="text-left max-w-3xl mb-14">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-accent-2 font-semibold mb-3 inline-block">
-            What is ACA
-          </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight font-display text-text-custom mb-5">
-            An AI pair-programmer that lives in your terminal
+        <div className="max-w-3xl mb-16 text-left">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent-border/30 bg-accent/5 mb-4">
+            <Zap className="w-3.5 h-3.5 text-accent-2" />
+            <span className="font-mono text-[10.5px] uppercase tracking-wider text-accent-2 font-bold">
+              What is ACA
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight font-display text-text-custom mb-6 leading-[1.1]">
+            An AI pair-programmer that{' '}
+            <span className="bg-gradient-to-r from-accent to-accent-2 bg-clip-text text-transparent">
+              lives in your terminal
+            </span>
           </h2>
-          <p className="text-text-custom-2 text-base md:text-lg leading-relaxed">
+          <p className="text-text-custom-2 text-base md:text-lg leading-relaxed max-w-2xl">
             ACA plans, edits files, runs commands, searches your codebase, and explains what it does — all inside the shell you already work in. You stay in control: it asks before touching anything that matters.
           </p>
         </div>
 
         {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {featureList.map((feature, idx) => (
             <motion.div
               key={idx}
@@ -65,15 +73,15 @@ export default function FeaturesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="group bg-panel border border-border-custom hover:border-accent-border/50 rounded-2xl p-6 transition-all duration-250 hover:-translate-y-1"
+              className="group bg-panel/70 backdrop-blur-sm border border-border-custom hover:border-accent-border/60 hover:bg-bg-dark-3/40 rounded-2xl p-6.5 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(12,14,24,0.4),0_0_30px_rgba(120,150,255,0.06)]"
             >
-              <div className="w-11 h-11 rounded-xl bg-accent-dim border border-accent-border flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+              <div className="w-12 h-12 rounded-xl bg-accent-dim border border-accent-border/40 flex items-center justify-center mb-6 group-hover:scale-105 group-hover:border-accent-border group-hover:bg-accent/15 transition-all duration-300">
                 {feature.icon}
               </div>
-              <h3 className="text-base font-bold text-text-custom mb-2.5 font-display group-hover:text-accent-2 transition-colors">
+              <h3 className="text-base font-bold text-text-custom mb-3 font-display group-hover:text-accent-2 transition-colors duration-200">
                 {feature.title}
               </h3>
-              <p className="text-text-custom-2 text-sm leading-relaxed">
+              <p className="text-text-custom-2 text-sm leading-relaxed group-hover:text-text-custom/90 transition-colors duration-200">
                 {feature.description}
               </p>
             </motion.div>
@@ -85,20 +93,23 @@ export default function FeaturesPage() {
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 bg-gradient-to-r from-bg-dark-3 to-bg-dark-2 border border-border-custom rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6"
+          className="mt-20 bg-gradient-to-r from-bg-dark-3/60 to-bg-dark-2/60 backdrop-blur-md border border-border-custom/80 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group hover:border-accent-border/30 transition-colors"
         >
-          <div className="flex items-center gap-4 text-left">
-            <div className="w-10 h-10 rounded-full bg-accent/15 flex items-center justify-center text-accent shrink-0">
-              <Sparkles className="w-5 h-5" />
+          {/* Subtle glow on hover */}
+          <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+          
+          <div className="flex items-center gap-4 text-left relative z-10">
+            <div className="w-12 h-12 rounded-full bg-accent/10 border border-accent-border/20 flex items-center justify-center text-accent shrink-0">
+              <Shield className="w-5.5 h-5.5" />
             </div>
             <div>
-              <h4 className="font-bold text-text-custom text-sm">Perfect for secure workflows</h4>
-              <p className="text-xs text-text-custom-2 mt-1">
+              <h4 className="font-bold text-text-custom text-sm font-display tracking-tight">Perfect for secure workflows</h4>
+              <p className="text-xs text-text-custom-2 mt-1 max-w-xl leading-relaxed">
                 Zero data retention, zero usage logging, and zero tracking. Absolute alignment with corporate data safety requirements.
               </p>
             </div>
           </div>
-          <div className="text-xs font-mono text-accent-2 border border-accent-border bg-accent-dim px-3 py-1.5 rounded-lg whitespace-nowrap">
+          <div className="text-xs font-mono font-bold text-accent-2 border border-accent-border/40 bg-accent-dim/40 px-3.5 py-2 rounded-lg whitespace-nowrap tracking-wide relative z-10 shadow-sm">
             LOCAL ENGINE: ON-PREMISE ONLY
           </div>
         </motion.div>

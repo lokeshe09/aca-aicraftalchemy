@@ -53,19 +53,25 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="py-12 md:py-18 relative">
+    <div className="py-16 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute top-10 right-1/4 w-[280px] h-[280px] bg-accent-dim rounded-full blur-[100px]" />
+        <div className="absolute top-1/3 right-10 w-[450px] h-[450px] bg-accent/5 rounded-full blur-[140px]" />
       </div>
 
       <div className="max-w-4xl mx-auto px-6">
         {/* Header */}
-        <div className="text-left max-w-3xl mb-14">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-accent-2 font-semibold mb-3 inline-block">
-            FAQ
-          </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight font-display text-text-custom mb-5">
-            Questions, answered
+        <div className="text-left max-w-3xl mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent-border/30 bg-accent/5 mb-4">
+            <HelpCircle className="w-3.5 h-3.5 text-accent-2" />
+            <span className="font-mono text-[10.5px] uppercase tracking-wider text-accent-2 font-bold">
+              FAQ
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight font-display text-text-custom mb-6 leading-[1.1]">
+            Questions,{' '}
+            <span className="bg-gradient-to-r from-accent to-accent-2 bg-clip-text text-transparent">
+              answered
+            </span>
           </h2>
           <p className="text-text-custom-2 text-base md:text-lg leading-relaxed">
             Have questions about keys, costs, or how ACA secures your local workstation? We've got you covered.
@@ -73,7 +79,7 @@ export default function FAQPage() {
         </div>
 
         {/* Collapsible details layout */}
-        <div className="space-y-4">
+        <div className="space-y-4.5">
           {faqList.map((faq, idx) => {
             const isExpanded = expandedId === faq.id;
             return (
@@ -82,19 +88,27 @@ export default function FAQPage() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: idx * 0.04 }}
-                className="border border-border-custom hover:border-accent-border/50 rounded-xl bg-panel overflow-hidden transition-colors"
+                className={`border rounded-2xl bg-panel/60 backdrop-blur-sm overflow-hidden transition-all duration-300 ${
+                  isExpanded
+                    ? 'border-accent-border/40 shadow-[0_10px_30px_rgba(120,150,255,0.06)] bg-bg-dark-2/40'
+                    : 'border-border-custom hover:border-accent-border/40 hover:bg-bg-dark-3/30'
+                }`}
               >
                 <button
                   onClick={() => toggleFAQ(faq.id)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-text-custom font-display focus:outline-none focus:ring-1 focus:ring-accent-border rounded-xl cursor-pointer"
+                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-text-custom font-display focus:outline-none focus:ring-1 focus:ring-accent-border rounded-2xl cursor-pointer"
                 >
-                  <span className="text-sm md:text-base">{faq.question}</span>
+                  <span className="text-sm md:text-base tracking-tight font-bold">{faq.question}</span>
                   <div className="text-accent shrink-0">
-                    {isExpanded ? (
-                      <Minus className="w-4 h-4 text-accent-2" />
-                    ) : (
-                      <Plus className="w-4 h-4 text-text-custom-3 group-hover:text-text-custom" />
-                    )}
+                    <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-all ${
+                      isExpanded ? 'bg-accent/10 text-accent-2' : 'bg-bg-dark-3 text-text-custom-3'
+                    }`}>
+                      {isExpanded ? (
+                        <Minus className="w-3.5 h-3.5" />
+                      ) : (
+                        <Plus className="w-3.5 h-3.5" />
+                      )}
+                    </div>
                   </div>
                 </button>
 
@@ -106,7 +120,7 @@ export default function FAQPage() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.22, ease: 'easeInOut' }}
                     >
-                      <div className="px-6 pb-5 pt-1 text-xs md:text-sm text-text-custom-2 leading-relaxed border-t border-border-soft/50 max-w-3xl">
+                      <div className="px-6 pb-6 pt-1 text-sm text-text-custom-2 leading-relaxed border-t border-border-soft/40 max-w-3xl">
                         {faq.answer}
                       </div>
                     </motion.div>
@@ -118,17 +132,19 @@ export default function FAQPage() {
         </div>
 
         {/* Extra Callout card */}
-        <div className="mt-12 p-6 rounded-xl border border-border-custom bg-bg-dark-2/50 text-left flex flex-col sm:flex-row items-start sm:items-center gap-5">
-          <HelpCircle className="w-8 h-8 text-accent shrink-0 mt-0.5 sm:mt-0" />
+        <div className="mt-14 p-7 rounded-2xl border border-border-custom/80 bg-panel/40 backdrop-blur-sm text-left flex flex-col sm:flex-row items-start sm:items-center gap-6 hover:border-accent-border/30 transition-colors">
+          <div className="w-12 h-12 rounded-full bg-accent/10 border border-accent-border/20 flex items-center justify-center text-accent shrink-0">
+            <HelpCircle className="w-6 h-6" />
+          </div>
           <div className="space-y-1">
-            <h4 className="font-bold text-text-custom text-sm font-display">Still have questions?</h4>
-            <p className="text-xs text-text-custom-2 leading-relaxed">
+            <h4 className="font-extrabold text-text-custom text-base font-display">Still have questions?</h4>
+            <p className="text-xs md:text-sm text-text-custom-2 leading-relaxed">
               Reach out directly to the creators of ACA at{' '}
-              <a href="mailto:aicraftalchemy@gmail.com" className="text-accent-2 hover:underline">
+              <a href="mailto:aicraftalchemy@gmail.com" className="text-accent-2 hover:underline font-semibold">
                 aicraftalchemy@gmail.com
               </a>{' '}
               or call us at{' '}
-              <a href="tel:+917661081043" className="text-accent-2 hover:underline">
+              <a href="tel:+917661081043" className="text-accent-2 hover:underline font-semibold">
                 +91 7661081043
               </a>.
               We are located in{' '}

@@ -9,7 +9,7 @@ import DocsPage from './components/DocsPage';
 import FAQPage from './components/FAQPage';
 import CopyButton from './components/CopyButton';
 import { motion, AnimatePresence } from 'motion/react';
-import { Sparkles, Mail, Phone, MapPin } from 'lucide-react';
+import { Zap, Mail, Phone, MapPin } from 'lucide-react';
 
 export default function App() {
   const [activePage, setActivePage] = useState<ActivePage>('home');
@@ -140,9 +140,6 @@ export default function App() {
           {/* Bottom attribution and credentials notice */}
           <div className="border-t border-border-soft mt-12 pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-left">
             <div className="space-y-1.5 max-w-2xl">
-              <p className="text-xs text-text-custom-3 leading-relaxed">
-                ACA, developed by <b className="text-text-custom-2 font-semibold">Aicraftalchemy</b>
-              </p>
               <p className="text-[10.5px] text-text-custom-3/80 leading-relaxed">
                 All model providers listed are independent third parties; their names, logos, and trademarks belong to their respective owners. No endorsement is implied.
               </p>
@@ -150,7 +147,7 @@ export default function App() {
 
             {/* Quick terminal indicator */}
             <div className="flex items-center gap-2 bg-bg-dark-3/60 px-3 py-1.5 rounded-lg border border-border-custom/40 font-mono text-[11px] text-text-custom-2 shrink-0">
-              <Sparkles className="w-3.5 h-3.5 text-accent" />
+              <Zap className="w-3.5 h-3.5 text-accent" />
               <span>Direct API Integration</span>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ActivePage } from '../types';
 import CopyButton from './CopyButton';
-import { Terminal, Shield, Key, ArrowRight, Sparkles, Check, Play, RefreshCw } from 'lucide-react';
+import { Terminal, Shield, Key, ArrowRight, Check, Play, RefreshCw } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface HeroPageProps {
@@ -23,8 +23,7 @@ export default function HeroPage({ setActivePage }: HeroPageProps) {
 
   const headlinePrefix = "The agentic coding CLI for ";
   const headlineSuffix = "any model, any provider";
-  const authorSuffix = " by AICRAFTALCHEMY";
-  const fullHeadline = headlinePrefix + headlineSuffix + authorSuffix;
+  const fullHeadline = headlinePrefix + headlineSuffix;
   const [typedLength, setTypedLength] = useState(0);
 
   useEffect(() => {
@@ -143,7 +142,9 @@ export default function HeroPage({ setActivePage }: HeroPageProps) {
                   {fullHeadline.substring(headlinePrefix.length + headlineSuffix.length, typedLength)}
                 </span>
               )}
-              <span className="inline-block w-[3px] h-[0.8em] bg-accent ml-1.5 animate-blink align-middle" />
+              {typedLength < fullHeadline.length && (
+                <span className="inline-block w-[3px] h-[0.8em] bg-accent ml-1.5 animate-blink align-middle" />
+              )}
             </h1>
 
             {/* Lead Description */}
@@ -302,7 +303,7 @@ export default function HeroPage({ setActivePage }: HeroPageProps) {
 
                 <div className="mt-4 pt-3 border-t border-border-soft/60 flex items-center justify-between text-[11px] text-text-custom-3">
                   <div className="flex items-center gap-1">
-                    <Sparkles className="w-3.5 h-3.5 text-accent" />
+                    <Shield className="w-3.5 h-3.5 text-accent" />
                     <span>Direct-to-provider routing active</span>
                   </div>
                   <div className="font-semibold text-accent-2 bg-accent-dim px-2 py-0.5 rounded">

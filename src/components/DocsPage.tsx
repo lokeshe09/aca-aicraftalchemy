@@ -14,19 +14,25 @@ export default function DocsPage() {
   ];
 
   return (
-    <div className="py-12 md:py-18 relative">
+    <div className="py-16 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute top-1/3 right-10 w-[300px] h-[300px] bg-accent-dim rounded-full blur-[110px]" />
+        <div className="absolute top-1/3 right-10 w-[450px] h-[450px] bg-accent/5 rounded-full blur-[140px]" />
       </div>
 
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
-        <div className="text-left max-w-3xl mb-14">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-accent-2 font-semibold mb-3 inline-block">
-            Documentation
-          </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight font-display text-text-custom mb-5">
-            Quickstart &amp; Setup Guide
+        <div className="text-left max-w-3xl mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent-border/30 bg-accent/5 mb-4">
+            <Terminal className="w-3.5 h-3.5 text-accent-2" />
+            <span className="font-mono text-[10.5px] uppercase tracking-wider text-accent-2 font-bold">
+              Documentation
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight font-display text-text-custom mb-6 leading-[1.1]">
+            Quickstart &amp;{' '}
+            <span className="bg-gradient-to-r from-accent to-accent-2 bg-clip-text text-transparent">
+              Setup Guide
+            </span>
           </h2>
           <p className="text-text-custom-2 text-base md:text-lg leading-relaxed">
             Everything you need to connect a provider to ACA: where to get each API key, the exact format ACA expects, and the two ways to plug it in.
@@ -34,30 +40,30 @@ export default function DocsPage() {
         </div>
 
         {/* --- Quickstart Steps --- */}
-        <div className="mb-20">
-          <h3 className="text-xl font-bold font-display text-text-custom mb-8 border-b border-border-soft pb-3 flex items-center gap-2">
-            <Terminal className="w-5.5 h-5.5 text-accent" />
+        <div className="mb-24">
+          <h3 className="text-2xl font-bold font-display text-text-custom mb-10 border-b border-border-custom pb-4 flex items-center gap-3">
+            <Terminal className="w-6 h-6 text-accent" />
             <span>Up and running in three steps</span>
           </h3>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Step 1 */}
-            <div className="flex flex-col text-left">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 rounded-full bg-accent-dim border border-accent-border flex items-center justify-center font-mono font-bold text-sm text-accent-2">
+            <div className="flex flex-col text-left bg-panel/30 border border-border-custom hover:border-accent-border/40 transition-colors p-6 rounded-2xl">
+              <div className="flex items-center gap-3.5 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-accent-dim border border-accent-border/50 flex items-center justify-center font-mono font-bold text-base text-accent-2 shadow-[0_0_15px_rgba(120,150,255,0.15)]">
                   1
                 </div>
-                <h4 className="font-bold text-text-custom text-sm font-display">Install ACA globally</h4>
+                <h4 className="font-bold text-text-custom text-sm font-display uppercase tracking-wide">Install ACA globally</h4>
               </div>
-              <p className="text-text-custom-2 text-xs leading-relaxed mb-4 min-h-[40px]">
+              <p className="text-text-custom-2 text-sm leading-relaxed mb-6 min-h-[48px]">
                 One npm command fetches the compiled ACA binary and its bundled code-search indexer automatically for your current OS.
               </p>
-              <div className="bg-code-bg border border-border-custom rounded-xl p-3.5 flex flex-col gap-3 font-mono text-xs mt-auto">
+              <div className="bg-code-bg/80 border border-border-custom/80 rounded-xl p-4 flex flex-col gap-3.5 font-mono text-xs mt-auto">
                 <div className="flex items-center justify-between">
-                  <span className="text-text-custom-3 text-[10px]">terminal</span>
+                  <span className="text-text-custom-3 text-[10px] uppercase tracking-wider">terminal</span>
                   <CopyButton text="npm install -g @aicraftalchemy/aca" />
                 </div>
-                <div className="text-text-custom">
+                <div className="text-text-custom font-medium">
                   <span className="text-accent-2 select-none mr-2">$</span>
                   <span>npm install -g @aicraftalchemy/aca</span>
                 </div>
@@ -65,55 +71,55 @@ export default function DocsPage() {
             </div>
 
             {/* Step 2 */}
-            <div className="flex flex-col text-left">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 rounded-full bg-accent-dim border border-accent-border flex items-center justify-center font-mono font-bold text-sm text-accent-2">
+            <div className="flex flex-col text-left bg-panel/30 border border-border-custom hover:border-accent-border/40 transition-colors p-6 rounded-2xl">
+              <div className="flex items-center gap-3.5 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-accent-dim border border-accent-border/50 flex items-center justify-center font-mono font-bold text-base text-accent-2 shadow-[0_0_15px_rgba(120,150,255,0.15)]">
                   2
                 </div>
-                <h4 className="font-bold text-text-custom text-sm font-display">Launch &amp; login with a key</h4>
+                <h4 className="font-bold text-text-custom text-sm font-display uppercase tracking-wide">Launch &amp; login with a key</h4>
               </div>
-              <p className="text-text-custom-2 text-xs leading-relaxed mb-4 min-h-[40px]">
-                Run <code className="font-mono text-accent-2 text-xs">aca</code> in any project folder, then use <code className="font-mono text-accent-2 text-xs">/login</code> to select a provider and paste your key.
+              <p className="text-text-custom-2 text-sm leading-relaxed mb-6 min-h-[48px]">
+                Run <code className="font-mono text-accent-2 text-xs bg-bg-dark-3/60 px-1.5 py-0.5 rounded border border-border-custom/30">aca</code> in any project folder, then use <code className="font-mono text-accent-2 text-xs bg-bg-dark-3/60 px-1.5 py-0.5 rounded border border-border-custom/30">/login</code> to select a provider and paste your key.
               </p>
-              <div className="bg-code-bg border border-border-custom rounded-xl p-3.5 flex flex-col gap-3 font-mono text-xs mt-auto">
+              <div className="bg-code-bg/80 border border-border-custom/80 rounded-xl p-4 flex flex-col gap-3.5 font-mono text-xs mt-auto">
                 <div className="flex items-center justify-between">
-                  <span className="text-text-custom-3 text-[10px]">terminal</span>
+                  <span className="text-text-custom-3 text-[10px] uppercase tracking-wider">terminal</span>
                   <CopyButton text="aca" />
                 </div>
-                <div className="text-text-custom space-y-1">
+                <div className="text-text-custom space-y-1.5 font-medium">
                   <div>
                     <span className="text-accent-2 select-none mr-2">$</span>
                     <span>aca</span>
                   </div>
-                  <div className="text-text-custom-3">
+                  <div className="text-text-custom-3 text-[11px] font-normal italic">
                     <span># inside ACA environment:</span>
                   </div>
                   <div>
                     <span className="text-accent select-none mr-2">&gt;</span>
                     <span className="text-accent-2">/login</span>
-                    <span className="text-text-custom-3"> # pick provider &amp; paste key</span>
+                    <span className="text-text-custom-3 font-normal"> # pick provider &amp; paste key</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Step 3 */}
-            <div className="flex flex-col text-left">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 rounded-full bg-accent-dim border border-accent-border flex items-center justify-center font-mono font-bold text-sm text-accent-2">
+            <div className="flex flex-col text-left bg-panel/30 border border-border-custom hover:border-accent-border/40 transition-colors p-6 rounded-2xl">
+              <div className="flex items-center gap-3.5 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-accent-dim border border-accent-border/50 flex items-center justify-center font-mono font-bold text-base text-accent-2 shadow-[0_0_15px_rgba(120,150,255,0.15)]">
                   3
                 </div>
-                <h4 className="font-bold text-text-custom text-sm font-display">Start giving it tasks</h4>
+                <h4 className="font-bold text-text-custom text-sm font-display uppercase tracking-wide">Start giving it tasks</h4>
               </div>
-              <p className="text-text-custom-2 text-xs leading-relaxed mb-4 min-h-[40px]">
-                Ask in plain English. Reference files with <code className="font-mono text-accent-2 text-xs">@</code>. ACA handles the plan, edits, and checks.
+              <p className="text-text-custom-2 text-sm leading-relaxed mb-6 min-h-[48px]">
+                Ask in plain English. Reference files with <code className="font-mono text-accent-2 text-xs bg-bg-dark-3/60 px-1.5 py-0.5 rounded border border-border-custom/30">@</code>. ACA handles the plan, edits, and checks.
               </p>
-              <div className="bg-code-bg border border-border-custom rounded-xl p-3.5 flex flex-col gap-3 font-mono text-xs mt-auto">
+              <div className="bg-code-bg/80 border border-border-custom/80 rounded-xl p-4 flex flex-col gap-3.5 font-mono text-xs mt-auto">
                 <div className="flex items-center justify-between">
-                  <span className="text-text-custom-3 text-[10px]">inside ACA prompt</span>
-                  <span className="text-[10px] text-accent-2 font-semibold">Ready</span>
+                  <span className="text-text-custom-3 text-[10px] uppercase tracking-wider">inside ACA prompt</span>
+                  <span className="text-[10px] text-accent-2 font-bold uppercase tracking-wider">Ready</span>
                 </div>
-                <div className="text-text-custom">
+                <div className="text-text-custom font-medium leading-relaxed">
                   <span className="text-accent select-none mr-2">&gt;</span>
                   <span>refactor <span className="text-accent-2">@src/api.ts</span> to use async/await and run the tests</span>
                 </div>
