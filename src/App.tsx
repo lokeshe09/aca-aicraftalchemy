@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ActivePage } from './types';
 import Navbar from './components/Navbar';
 import HeroPage from './components/HeroPage';
@@ -13,6 +13,60 @@ import { Zap, Mail, Phone, MapPin } from 'lucide-react';
 
 export default function App() {
   const [activePage, setActivePage] = useState<ActivePage>('home');
+
+  // Handle URL Hash deep linking for TUI / CLI integration
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash === '#features') {
+        setActivePage('features');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash === '#providers') {
+        setActivePage('providers');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash === '#why') {
+        setActivePage('why');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash === '#faq') {
+        setActivePage('faq');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash === '#docs' || hash.startsWith('#docs-')) {
+        setActivePage('docs');
+        if (hash.startsWith('#docs-')) {
+          setTimeout(() => {
+            const id = hash.substring(1);
+            const element = document.getElementById(id);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 200);
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      } else if (hash === '#home' || hash === '') {
+        setActivePage('home');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+
+    // Run once on load
+    handleHashChange();
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // Sync activePage state back to the URL hash (if not deep link)
+  useEffect(() => {
+    const currentHash = window.location.hash;
+    const targetHash = activePage === 'home' ? '' : `#${activePage}`;
+    if (activePage === 'docs' && currentHash.startsWith('#docs-')) {
+      return; // Keep deep link hash intact
+    }
+    if (currentHash !== targetHash && !(activePage === 'home' && currentHash === '')) {
+      window.history.pushState(null, '', targetHash || window.location.pathname);
+    }
+  }, [activePage]);
 
   const handleFooterLinkClick = (page: ActivePage) => {
     setActivePage(page);

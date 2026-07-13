@@ -40,7 +40,7 @@ export default function DocsPage() {
         </div>
 
         {/* --- Quickstart Steps --- */}
-        <div className="mb-24">
+        <div id="docs-quickstart" className="mb-24 scroll-mt-24">
           <h3 className="text-2xl font-bold font-display text-text-custom mb-10 border-b border-border-custom pb-4 flex items-center gap-3">
             <Terminal className="w-6 h-6 text-accent" />
             <span>Up and running in three steps</span>
@@ -48,7 +48,7 @@ export default function DocsPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Step 1 */}
-            <div className="flex flex-col text-left bg-panel/30 border border-border-custom hover:border-accent-border/40 transition-colors p-6 rounded-2xl">
+            <div id="docs-install" className="flex flex-col text-left bg-panel/30 border border-border-custom hover:border-accent-border/40 transition-colors p-6 rounded-2xl scroll-mt-24">
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-10 h-10 rounded-xl bg-accent-dim border border-accent-border/50 flex items-center justify-center font-mono font-bold text-base text-accent-2 shadow-[0_0_15px_rgba(120,150,255,0.15)]">
                   1
@@ -71,7 +71,7 @@ export default function DocsPage() {
             </div>
 
             {/* Step 2 */}
-            <div className="flex flex-col text-left bg-panel/30 border border-border-custom hover:border-accent-border/40 transition-colors p-6 rounded-2xl">
+            <div id="docs-login" className="flex flex-col text-left bg-panel/30 border border-border-custom hover:border-accent-border/40 transition-colors p-6 rounded-2xl scroll-mt-24">
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-10 h-10 rounded-xl bg-accent-dim border border-accent-border/50 flex items-center justify-center font-mono font-bold text-base text-accent-2 shadow-[0_0_15px_rgba(120,150,255,0.15)]">
                   2
@@ -104,7 +104,7 @@ export default function DocsPage() {
             </div>
 
             {/* Step 3 */}
-            <div className="flex flex-col text-left bg-panel/30 border border-border-custom hover:border-accent-border/40 transition-colors p-6 rounded-2xl">
+            <div id="docs-usage" className="flex flex-col text-left bg-panel/30 border border-border-custom hover:border-accent-border/40 transition-colors p-6 rounded-2xl scroll-mt-24">
               <div className="flex items-center gap-3.5 mb-5">
                 <div className="w-10 h-10 rounded-xl bg-accent-dim border border-accent-border/50 flex items-center justify-center font-mono font-bold text-base text-accent-2 shadow-[0_0_15px_rgba(120,150,255,0.15)]">
                   3
@@ -129,7 +129,7 @@ export default function DocsPage() {
         </div>
 
         {/* --- 1. Two Ways to add key --- */}
-        <div className="mb-20 text-left">
+        <div id="docs-add-key" className="mb-20 text-left scroll-mt-24">
           <h3 className="text-xl font-bold font-display text-text-custom mb-4 border-b border-border-soft pb-3">
             1 · Two ways to add your key
           </h3>
@@ -155,7 +155,7 @@ export default function DocsPage() {
         </div>
 
         {/* --- 2. Keys table --- */}
-        <div className="mb-20 text-left">
+        <div id="docs-key-reference" className="mb-20 text-left scroll-mt-24">
           <h3 className="text-xl font-bold font-display text-text-custom mb-4 border-b border-border-soft pb-3">
             2 · API Key Reference List
           </h3>
@@ -204,7 +204,7 @@ export default function DocsPage() {
         </div>
 
         {/* --- 3. Key formatting --- */}
-        <div className="mb-20 text-left">
+        <div id="docs-formatting" className="mb-20 text-left scroll-mt-24">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border-soft pb-3 mb-6">
             <h3 className="text-xl font-bold font-display text-text-custom">
               3 · Format per provider
@@ -329,7 +329,7 @@ setx GEMINI_API_KEY "AIzaSy...your-key"`} />
         </div>
 
         {/* --- 4. Options Setup details --- */}
-        <div className="mb-20 text-left">
+        <div id="docs-integration" className="mb-20 text-left scroll-mt-24">
           <h3 className="text-xl font-bold font-display text-text-custom mb-4 border-b border-border-soft pb-3">
             4 · Integrate into ACA
           </h3>
@@ -398,7 +398,7 @@ aca`} />
         </div>
 
         {/* --- 5. Optional settings --- */}
-        <div className="text-left">
+        <div id="docs-automation" className="text-left mb-20 scroll-mt-24">
           <h3 className="text-xl font-bold font-display text-text-custom mb-4 border-b border-border-soft pb-3">
             5 · Optional Automation Settings
           </h3>
@@ -419,6 +419,106 @@ aca`} />
                   <tr key={idx} className="hover:bg-bg-dark-2/30">
                     <td className="p-4 font-mono text-accent-2 font-bold">{item.name}</td>
                     <td className="p-4 text-text-custom-2 leading-relaxed">{item.desc}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* --- 6. TUI Deep Linking Integration --- */}
+        <div id="docs-tui-reference" className="text-left scroll-mt-24">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border-soft pb-3 mb-6">
+            <h3 className="text-xl font-bold font-display text-text-custom">
+              6 · Terminal TUI Integration Reference
+            </h3>
+            <span className="font-mono text-[10px] text-accent-2 bg-accent/15 border border-accent-border/30 px-2.5 py-1 rounded uppercase tracking-wider font-bold">
+              CLI / TUI Ready
+            </span>
+          </div>
+          
+          <p className="text-text-custom-2 text-sm mb-6">
+            ACA is fully integrated with terminal-ready deep linking hashes. Keep these documentation URLs directly inside your CLI / TUI terminal client to direct users instantly to precise instruction segments.
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div className="p-5 rounded-xl border border-border-custom bg-panel/40">
+              <h4 className="font-bold text-text-custom text-xs uppercase tracking-wider mb-3 font-mono flex items-center gap-2 text-accent">
+                <Terminal className="w-4 h-4" />
+                <span>CLI JSON Map for Embeds</span>
+              </h4>
+              <div className="bg-code-bg border border-border-custom rounded-lg p-3.5 font-mono text-[11px] leading-relaxed relative">
+                <div className="absolute top-3 right-3">
+                  <CopyButton text={`{
+  "quickstart": "https://aca.aicraftalchemy.com/#docs-quickstart",
+  "installation": "https://aca.aicraftalchemy.com/#docs-install",
+  "login_command": "https://aca.aicraftalchemy.com/#docs-login",
+  "key_dashboard": "https://aca.aicraftalchemy.com/#docs-key-reference",
+  "env_variables": "https://aca.aicraftalchemy.com/#docs-formatting",
+  "integration": "https://aca.aicraftalchemy.com/#docs-integration",
+  "automation": "https://aca.aicraftalchemy.com/#docs-automation"
+}`} />
+                </div>
+                <pre className="text-text-custom-2 whitespace-pre overflow-x-auto select-all">
+{`{
+  "quickstart": "https://aca.aicraftalchemy.com/#docs-quickstart",
+  "installation": "https://aca.aicraftalchemy.com/#docs-install",
+  "login_command": "https://aca.aicraftalchemy.com/#docs-login",
+  "key_dashboard": "https://aca.aicraftalchemy.com/#docs-key-reference",
+  "env_variables": "https://aca.aicraftalchemy.com/#docs-formatting",
+  "integration": "https://aca.aicraftalchemy.com/#docs-integration",
+  "automation": "https://aca.aicraftalchemy.com/#docs-automation"
+}`}
+                </pre>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl border border-border-custom bg-panel/40 flex flex-col justify-between">
+              <div>
+                <h4 className="font-bold text-text-custom text-xs uppercase tracking-wider mb-3 font-mono flex items-center gap-2 text-accent">
+                  <Info className="w-4 h-4" />
+                  <span>How to use in terminal TUI</span>
+                </h4>
+                <p className="text-xs text-text-custom-2 leading-relaxed mb-4">
+                  When a user encounters a configuration or key setup step in the TUI, display the designated deep link directly on-screen. Most modern terminals support clickable hyperlinks:
+                </p>
+                <div className="bg-bg-dark-3 border border-border-custom/50 rounded-lg p-3 font-mono text-[11px] text-text-custom-3 leading-relaxed mb-3">
+                  <span className="text-accent-2">printf</span> <span className="text-custom-green">"\\e]8;;https://aca.aicraftalchemy.com/#docs-install\\e\\\\Click here for Installation Guide\\e]8;;\\e\\\\\\n"</span>
+                </div>
+              </div>
+              <div className="text-[11px] text-accent bg-accent/5 p-3 rounded-lg border border-accent-border/10">
+                <span className="font-bold">Pro-tip:</span> Clicking the links from your terminal emulator will launch the browser and instantly scroll directly to the correct interactive segment.
+              </div>
+            </div>
+          </div>
+
+          <div className="border border-border-custom rounded-xl overflow-hidden">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-bg-dark-2 border-b border-border-soft">
+                  <th className="p-4 text-xs font-semibold uppercase tracking-wider text-text-custom-3 w-[25%]">Section Target</th>
+                  <th className="p-4 text-xs font-semibold uppercase tracking-wider text-text-custom-3 w-[55%]">Direct Deep-Link URL</th>
+                  <th className="p-4 text-xs font-semibold uppercase tracking-wider text-text-custom-3 w-[20%] text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border-soft text-xs">
+                {[
+                  { target: "Complete Quickstart", url: "https://aca.aicraftalchemy.com/#docs-quickstart" },
+                  { target: "Global Installation", url: "https://aca.aicraftalchemy.com/#docs-install" },
+                  { target: "Interactive Setup", url: "https://aca.aicraftalchemy.com/#docs-login" },
+                  { target: "Commands & Usage", url: "https://aca.aicraftalchemy.com/#docs-usage" },
+                  { target: "BYOK Authentication", url: "https://aca.aicraftalchemy.com/#docs-add-key" },
+                  { target: "Official Key Hubs", url: "https://aca.aicraftalchemy.com/#docs-key-reference" },
+                  { target: "Environment Format", url: "https://aca.aicraftalchemy.com/#docs-formatting" },
+                  { target: "CLI Integration Flow", url: "https://aca.aicraftalchemy.com/#docs-integration" },
+                  { target: "Automation Overrides", url: "https://aca.aicraftalchemy.com/#docs-automation" },
+                ].map((link, idx) => (
+                  <tr key={idx} className="hover:bg-bg-dark-2/30">
+                    <td className="p-4 font-bold text-text-custom">{link.target}</td>
+                    <td className="p-4 font-mono text-accent-2 select-all break-all">{link.url}</td>
+                    <td className="p-4 text-right">
+                      <CopyButton text={link.url} />
+                    </td>
                   </tr>
                 ))}
               </tbody>
