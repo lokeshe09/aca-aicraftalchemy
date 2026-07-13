@@ -360,6 +360,60 @@ export default function HeroPage({ setActivePage }: HeroPageProps) {
           </div>
         </div>
 
+        {/* CLI SEO & Index Directory Section */}
+        <div className="mt-20 pt-10 border-t border-border-soft">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+            <div>
+              <h3 className="font-sans font-bold text-lg md:text-xl text-text-custom tracking-tight flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" />
+                CLI Engine Index &amp; Search Tags
+              </h3>
+              <p className="text-xs text-text-custom-3 mt-1">
+                Explore the complete technical index and core search tags of the agentic coding CLI ecosystem.
+              </p>
+            </div>
+            <div className="text-[10px] font-mono text-accent-2 bg-accent-dim px-3 py-1.5 rounded-lg border border-accent-border/20 self-start md:self-auto uppercase tracking-wider font-bold">
+              Indexable metadata active
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {[
+              { label: "Agentic Coding CLI", text: "ACA runs as a high-performance <strong>agentic coding CLI</strong> built for automated software engineering." },
+              { label: "Command-Line Interface", text: "A fully keyboard-driven <strong>command-line interface</strong> that eliminates context-switching." },
+              { label: "Local AI Coder", text: "Integrate a secure, offline-ready <strong>local AI coder</strong> that respects your project boundaries." },
+              { label: "Private Coding Assistant", text: "An absolute <strong>private coding assistant</strong> that never sends telemetry or secret keys to middleman proxies." },
+              { label: "Bring Your Own Key", text: "A robust <strong>bring your own key (BYOK)</strong> framework ensuring direct billing relationships with models." },
+              { label: "Gemini API Integration", text: "Leverage state-of-the-art <strong>Gemini API integration</strong> for native code generation and fast reasoning." },
+              { label: "Claude Sonnet Model Router", text: "Route complex developer tasks with <strong>Claude Sonnet model router</strong> configurations for extreme coding accuracy." },
+              { label: "OpenAI Developer Key", text: "Plug in any <strong>OpenAI developer key</strong> to utilize GPT models directly from your native shell environment." },
+              { label: "Groq Inference Engine", text: "Accelerate development speed with ultra-low latency <strong>Groq speed-of-light inference</strong> models." },
+              { label: "Cerebras Rapid Codegen", text: "Experience next-level generation speed via <strong>Cerebras rapid codegen</strong> integration." },
+              { label: "Autonomous Software Agent", text: "A highly capable <strong>autonomous software development agent</strong> that writes, tests, and debugs source files." },
+              { label: "Direct Shell Terminal", text: "Works inside any <strong>direct shell terminal code editor</strong> like vim, neovim, tmux, or VSCode terminals." },
+              { label: "Code Refactoring Engine", text: "Execute automated cleanups, type adjustments, and optimizations with the <strong>code refactoring engine</strong>." },
+              { label: "Automated Error Debugging", text: "Trace stack logs and fix fatal compiler exceptions using the <strong>automated error debugging tool</strong>." },
+              { label: "Full-Stack Codebase Generator", text: "Scaffold, compile, and refine large-scale systems with the <strong>full-stack codebase generator</strong>." },
+              { label: "Offline-First Local Workspace", text: "Operate in an <strong>offline-first local workspace</strong> environment where your intellectual property stays secure." },
+              { label: "Multi-Model LLM Gateway", text: "Unify all foundation models into a unified <strong>multi-model LLM gateway</strong> under a single terminal utility." },
+              { label: "Intelligent Token Control", text: "Keep model server bills light through active <strong>intelligent token budget control</strong> and context trimming." },
+              { label: "No Proxy Security", text: "Bypass data parsing and middleman logging with our <strong>no proxy middleman security</strong> engineering." },
+              { label: "Developer Utilities", text: "A clean set of <strong>terminal-native developer utilities</strong> tailored for agile software engineering teams." }
+            ].map((tag, idx) => (
+              <div 
+                key={idx}
+                className="p-3.5 rounded-xl bg-bg-dark-2/20 border border-border-custom/30 hover:border-accent-border/30 hover:bg-bg-dark-2/40 transition-all duration-200 text-left"
+              >
+                <div className="font-mono text-[11px] text-accent font-bold mb-1.5 uppercase tracking-wide">{tag.label}</div>
+                <p 
+                  className="text-xs text-text-custom-2 leading-relaxed font-sans"
+                  dangerouslySetInnerHTML={{ __html: tag.text }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </div>
   );
