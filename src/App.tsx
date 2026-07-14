@@ -14,27 +14,29 @@ import { Zap, Mail, Phone, MapPin } from 'lucide-react';
 export default function App() {
   const [activePage, setActivePage] = useState<ActivePage>('home');
 
-  // Handle URL Hash deep linking for TUI / CLI integration
+  // Handle URL path deep linking for TUI / CLI integration
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash === '#features') {
+    const handleRouteChange = () => {
+      const path = window.location.pathname;
+      
+      if (path === '/features') {
         setActivePage('features');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === '#providers') {
+      } else if (path === '/providers') {
         setActivePage('providers');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === '#why') {
+      } else if (path === '/why') {
         setActivePage('why');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === '#faq') {
+      } else if (path === '/faq') {
         setActivePage('faq');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === '#docs' || hash.startsWith('#docs-')) {
+      } else if (path === '/docs' || path.startsWith('/docs/')) {
         setActivePage('docs');
-        if (hash.startsWith('#docs-')) {
+        if (path.startsWith('/docs/')) {
+          const subPage = path.substring(6); // Extract section (e.g. "install")
+          const id = `docs-${subPage}`;
           setTimeout(() => {
-            const id = hash.substring(1);
             const element = document.getElementById(id);
             if (element) {
               element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -43,28 +45,31 @@ export default function App() {
         } else {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-      } else if (hash === '#home' || hash === '') {
+      } else if (path === '/' || path === '/home') {
         setActivePage('home');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        // Fallback for unexpected paths to keep UX seamless
+        setActivePage('home');
       }
     };
 
     // Run once on load
-    handleHashChange();
+    handleRouteChange();
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handleRouteChange);
+    return () => window.removeEventListener('popstate', handleRouteChange);
   }, []);
 
-  // Sync activePage state back to the URL hash (if not deep link)
+  // Sync activePage state back to the URL pathname
   useEffect(() => {
-    const currentHash = window.location.hash;
-    const targetHash = activePage === 'home' ? '' : `#${activePage}`;
-    if (activePage === 'docs' && currentHash.startsWith('#docs-')) {
-      return; // Keep deep link hash intact
+    const currentPath = window.location.pathname;
+    const targetPath = activePage === 'home' ? '/' : `/${activePage}`;
+    if (activePage === 'docs' && currentPath.startsWith('/docs/')) {
+      return; // Keep deep link path intact
     }
-    if (currentHash !== targetHash && !(activePage === 'home' && currentHash === '')) {
-      window.history.pushState(null, '', targetHash || window.location.pathname);
+    if (currentPath !== targetPath) {
+      window.history.pushState(null, '', targetPath);
     }
   }, [activePage]);
 

@@ -438,7 +438,7 @@ aca`} />
           </div>
           
           <p className="text-text-custom-2 text-sm mb-6">
-            ACA is fully integrated with terminal-ready deep linking hashes. Keep these documentation URLs directly inside your CLI / TUI terminal client to direct users instantly to precise instruction segments.
+            ACA is fully integrated with terminal-ready deep linking paths. Keep these documentation URLs directly inside your CLI / TUI terminal client to direct users instantly to precise instruction segments.
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
@@ -450,24 +450,24 @@ aca`} />
               <div className="bg-code-bg border border-border-custom rounded-lg p-3.5 font-mono text-[11px] leading-relaxed relative">
                 <div className="absolute top-3 right-3">
                   <CopyButton text={`{
-  "quickstart": "https://aca.aicraftalchemy.com/#docs-quickstart",
-  "installation": "https://aca.aicraftalchemy.com/#docs-install",
-  "login_command": "https://aca.aicraftalchemy.com/#docs-login",
-  "key_dashboard": "https://aca.aicraftalchemy.com/#docs-key-reference",
-  "env_variables": "https://aca.aicraftalchemy.com/#docs-formatting",
-  "integration": "https://aca.aicraftalchemy.com/#docs-integration",
-  "automation": "https://aca.aicraftalchemy.com/#docs-automation"
+  "quickstart": "https://aca.aicraftalchemy.com/docs/quickstart",
+  "installation": "https://aca.aicraftalchemy.com/docs/install",
+  "login_command": "https://aca.aicraftalchemy.com/docs/login",
+  "key_dashboard": "https://aca.aicraftalchemy.com/docs/key-reference",
+  "env_variables": "https://aca.aicraftalchemy.com/docs/formatting",
+  "integration": "https://aca.aicraftalchemy.com/docs/integration",
+  "automation": "https://aca.aicraftalchemy.com/docs/automation"
 }`} />
                 </div>
                 <pre className="text-text-custom-2 whitespace-pre overflow-x-auto select-all">
 {`{
-  "quickstart": "https://aca.aicraftalchemy.com/#docs-quickstart",
-  "installation": "https://aca.aicraftalchemy.com/#docs-install",
-  "login_command": "https://aca.aicraftalchemy.com/#docs-login",
-  "key_dashboard": "https://aca.aicraftalchemy.com/#docs-key-reference",
-  "env_variables": "https://aca.aicraftalchemy.com/#docs-formatting",
-  "integration": "https://aca.aicraftalchemy.com/#docs-integration",
-  "automation": "https://aca.aicraftalchemy.com/#docs-automation"
+  "quickstart": "https://aca.aicraftalchemy.com/docs/quickstart",
+  "installation": "https://aca.aicraftalchemy.com/docs/install",
+  "login_command": "https://aca.aicraftalchemy.com/docs/login",
+  "key_dashboard": "https://aca.aicraftalchemy.com/docs/key-reference",
+  "env_variables": "https://aca.aicraftalchemy.com/docs/formatting",
+  "integration": "https://aca.aicraftalchemy.com/docs/integration",
+  "automation": "https://aca.aicraftalchemy.com/docs/automation"
 }`}
                 </pre>
               </div>
@@ -483,7 +483,7 @@ aca`} />
                   When a user encounters a configuration or key setup step in the TUI, display the designated deep link directly on-screen. Most modern terminals support clickable hyperlinks:
                 </p>
                 <div className="bg-bg-dark-3 border border-border-custom/50 rounded-lg p-3 font-mono text-[11px] text-text-custom-3 leading-relaxed mb-3">
-                  <span className="text-accent-2">printf</span> <span className="text-custom-green">"\\e]8;;https://aca.aicraftalchemy.com/#docs-install\\e\\\\Click here for Installation Guide\\e]8;;\\e\\\\\\n"</span>
+                  <span className="text-accent-2">printf</span> <span className="text-custom-green">"\\e]8;;https://aca.aicraftalchemy.com/docs/install\\e\\\\Click here for Installation Guide\\e]8;;\\e\\\\\\n"</span>
                 </div>
               </div>
               <div className="text-[11px] text-accent bg-accent/5 p-3 rounded-lg border border-accent-border/10">
@@ -503,15 +503,15 @@ aca`} />
               </thead>
               <tbody className="divide-y divide-border-soft text-xs">
                 {[
-                  { target: "Complete Quickstart", url: "https://aca.aicraftalchemy.com/#docs-quickstart" },
-                  { target: "Global Installation", url: "https://aca.aicraftalchemy.com/#docs-install" },
-                  { target: "Interactive Setup", url: "https://aca.aicraftalchemy.com/#docs-login" },
-                  { target: "Commands & Usage", url: "https://aca.aicraftalchemy.com/#docs-usage" },
-                  { target: "BYOK Authentication", url: "https://aca.aicraftalchemy.com/#docs-add-key" },
-                  { target: "Official Key Hubs", url: "https://aca.aicraftalchemy.com/#docs-key-reference" },
-                  { target: "Environment Format", url: "https://aca.aicraftalchemy.com/#docs-formatting" },
-                  { target: "CLI Integration Flow", url: "https://aca.aicraftalchemy.com/#docs-integration" },
-                  { target: "Automation Overrides", url: "https://aca.aicraftalchemy.com/#docs-automation" },
+                  { target: "Complete Quickstart", url: "https://aca.aicraftalchemy.com/docs/quickstart" },
+                  { target: "Global Installation", url: "https://aca.aicraftalchemy.com/docs/install" },
+                  { target: "Interactive Setup", url: "https://aca.aicraftalchemy.com/docs/login" },
+                  { target: "Commands & Usage", url: "https://aca.aicraftalchemy.com/docs/usage" },
+                  { target: "BYOK Authentication", url: "https://aca.aicraftalchemy.com/docs/add-key" },
+                  { target: "Official Key Hubs", url: "https://aca.aicraftalchemy.com/docs/key-reference" },
+                  { target: "Environment Format", url: "https://aca.aicraftalchemy.com/docs/formatting" },
+                  { target: "CLI Integration Flow", url: "https://aca.aicraftalchemy.com/docs/integration" },
+                  { target: "Automation Overrides", url: "https://aca.aicraftalchemy.com/docs/automation" },
                 ].map((link, idx) => (
                   <tr key={idx} className="hover:bg-bg-dark-2/30">
                     <td className="p-4 font-bold text-text-custom">{link.target}</td>
